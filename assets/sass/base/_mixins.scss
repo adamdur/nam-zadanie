@@ -1,0 +1,50 @@
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+	@if $inset {
+		-webkit-box-shadow:inset $top $left $blur $size $color;
+		-moz-box-shadow:inset $top $left $blur $size $color;
+		box-shadow:inset $top $left $blur $size $color;
+	} @else {
+		-webkit-box-shadow: $top $left $blur $size $color;
+		-moz-box-shadow: $top $left $blur $size $color;
+		box-shadow: $top $left $blur $size $color;
+	}
+}
+
+@mixin transition($what, $ms, $function) {
+	-webkit-transition: $what $ms $function;
+	-moz-transition: $what $ms $function;
+	-ms-transition: $what $ms $function;
+	-o-transition: $what $ms $function;
+	transition: $what $ms $function;
+}
+
+@mixin transform( $val ) {
+	-webkit-transform: $val;
+	-moz-transform: $val;
+	-ms-transform: $val;
+	-o-transform: $val;
+	transform: $val;
+}
+
+@mixin transform-origin( $val ) {
+	-webkit-transform-origin: $val;
+	-moz-transform-origin: $val;
+	-ms-transform-origin: $val;
+	-o-transform-origin: $val;
+	transform-origin: $val;
+}
+
+@mixin btn($color, $textColor: $black) {
+	text-decoration: none !important;
+	display: inline-block;
+	text-align: center;
+	padding: .7rem 1rem;
+	background-color: $color;
+	color: $textColor;
+	border-bottom: 4px solid $black;
+	@include transition(all, 150ms, ease);
+	&:hover,
+	&:focus{
+		background: darken($color, 3%);
+	}
+}
